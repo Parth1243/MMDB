@@ -1,0 +1,453 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #0b0b0b;
+    color: white;
+}
+
+.bar1 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+    background-color: black;
+}
+
+.logo {
+    text-decoration: none;
+    color: orange;
+}
+
+.logo-txt {
+    margin-left: 15px;
+}
+
+.bar-menu { 
+    display: flex; 
+    gap: 25px; 
+    list-style-type: none; 
+    margin-left: 25px; 
+}
+
+
+.bar-menu a { 
+    text-decoration: none; 
+    color: orange; 
+    position: relative; 
+    transition: color 0.3s ease; 
+}
+.bar-menu a:hover, 
+.bar-menu a.active { 
+    color: white; 
+}
+
+.bar-menu > li > a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -4px;
+    left: 50%;
+    background-color: orange;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+.bar-menu > li > a:hover::after,
+.bar-menu > li > a.active::after {
+    width: 100%; 
+}
+
+
+.allmovies-layout {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown {
+    position: relative; 
+    display: inline-block;
+}
+
+.dropbtn {
+    transition: color 0.3s ease; 
+}
+
+
+.dropdown-content {
+    display: none;    
+    position: absolute;
+    left: 0;
+    top: 100%;  
+    min-width: 150px;
+    border-radius: 10px;
+    z-index: 1000; 
+    overflow: hidden;
+}
+
+
+.dropdown-content a {
+    padding: 12px 16px;
+    display: block; 
+    text-align: left;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: orange;
+}
+
+
+.dropdown-content {
+    background-color: #000000; 
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5); 
+}
+
+.dropdown-content a {
+    color: #ffffff; 
+}
+
+.dropdown-content a:hover {
+    background-color: #212121 ; 
+    color: orange; 
+}
+
+.movies-grid-section {
+    flex: 1;
+}
+
+.movies-grid-section h2 {
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.sorting-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 20px;
+}
+
+
+.sort-box {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.sort-box h3 {
+    color: orange;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.sort-options { 
+list-style: none; 
+}
+.sort-options li {
+    margin-bottom: 10px; 
+}
+
+
+
+.sort-btn {
+    width: 100%;
+    background: transparent;
+    color: #ccc;
+    border: none;
+    text-align: left;
+    padding: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+
+.sort-btn:hover { 
+    background: #222; 
+    color: white; 
+}
+
+.sort-btn.active { 
+    background: orange; 
+    color: black; 
+    font-weight: bold; 
+}
+
+.movie-card { 
+    background: #222; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    position: relative; 
+    cursor: pointer; 
+    transition: transform 0.3s ease; 
+    aspect-ratio: 2/3; 
+    z-index: 1;
+}
+
+.movie-card:hover { 
+    transform: scale(1.05); 
+    z-index: 10; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.9); 
+}
+
+
+
+.movie-card img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+}
+.card-overlay { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.85); 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    padding: 15px; 
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
+
+
+.movie-card:hover .card-overlay { 
+    opacity: 1; 
+}
+.card-overlay h3 { 
+    color: orange; 
+    font-size: 1.1rem; 
+    margin-bottom: 5px; 
+}
+
+.card-overlay p { 
+    color: white; 
+    font-size: 0.9rem; 
+    margin-bottom: 5px; 
+}
+
+
+.watchlist-icon-btn { 
+    position: absolute; 
+    top: 10px; 
+    right: 10px; 
+    background: rgba(0,0,0,0.6); 
+    border: 2px solid white; 
+    color: white; 
+    border-radius: 50%; 
+    width: 35px; 
+    height: 35px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    cursor: pointer; 
+    z-index: 20; 
+    transition: all 0.3s ease; 
+}
+
+.watchlist-icon-btn:hover { 
+    background: white; 
+    color: black; 
+    transform: scale(1.1); 
+}
+
+
+
+.watchlist-icon-btn.added { 
+    background: #4CAF50; 
+    border-color: #4CAF50; 
+    color: white; 
+}
+#toast { 
+    visibility: hidden; 
+    min-width: 250px; 
+    background-color: #4CAF50; 
+    color: white; 
+    text-align: center; 
+    border-radius: 8px; 
+    padding: 16px; 
+    position: fixed; 
+    z-index: 3000; 
+    left: 50%; 
+    bottom: 30px; 
+    font-size: 1.1rem; 
+    font-weight: bold; 
+    transform: translateX(-50%); 
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.5); 
+}
+
+
+
+#toast.show { 
+    visibility: visible; 
+    animation: fadein 0.5s, fadeout 0.5s 2.5s; 
+}
+
+@keyframes fadein { 
+    from { 
+        bottom: 0; 
+        opacity: 0; 
+    } 
+    to { 
+        bottom: 30px; 
+        opacity: 1; 
+    } 
+}
+@keyframes fadeout { 
+    from { 
+        bottom: 30px; 
+        opacity: 1; 
+    } 
+    to { 
+        bottom: 0; 
+        opacity: 0; 
+    } 
+}
+
+
+/*LIGHT MODE*/
+
+body.light-mode { 
+    background-color: #f5f5f5 !important; 
+    color: #111 !important; 
+}
+body.light-mode h2, 
+body.light-mode h3, 
+body.light-mode li { 
+    color: #111 !important; 
+}
+
+
+
+body.light-mode .bar1 { 
+    background-color: #ffffff !important; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important; 
+}
+body.light-mode .bar-menu a { 
+    color: #444 !important; 
+}
+
+
+body.light-mode .bar-menu a:hover, 
+body.light-mode .bar-menu a.active { 
+    color: orange !important; 
+}
+body.light-mode .dropdown-content { 
+    background-color: #ffffff !important; 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1) !important; 
+}
+body.light-mode .dropdown-content a { 
+    color: #111 !important; 
+}
+
+
+body.light-mode .dropdown-content a:hover { 
+    background-color: #f0f0f0 !important; 
+    color: orange !important; 
+}
+body.light-mode .theme-btn:hover { 
+    color: #111 !important; 
+}
+
+
+
+
+body.light-mode .sort-box { 
+    background-color: #ffffff !important; 
+    border-color: orange !important; 
+}
+
+
+
+body.light-mode .sort-btn { 
+    color: #333 !important; 
+}
+body.light-mode .sort-btn:hover { 
+    background: #f0f0f0 !important; 
+    color: #111 !important; 
+}
+
+body.light-mode .sort-btn.active { 
+    background: orange !important; 
+    color: white !important; 
+}
+
+/*Hover Overlay */
+
+body.light-mode .movie-card { 
+    background-color: #ffffff !important; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important; 
+}
+
+
+
+body.light-mode .card-overlay { 
+    background: rgba(255, 255, 255, 0.75) !important; 
+    backdrop-filter: blur(3px) !important; 
+    -webkit-backdrop-filter: blur(3px) !important;
+}
+
+body.light-mode .card-overlay h3 { 
+    color: orange !important; 
+}
+body.light-mode .card-overlay p, 
+body.light-mode .card-overlay .genres { 
+    color: #333 !important; 
+}
+
+
+
+body.light-mode .watchlist-icon-btn { 
+    background: rgba(255, 255, 255, 0.9) !important; 
+    color: #111 !important; 
+    border: 2px solid #333 !important; 
+}
+body.light-mode .watchlist-icon-btn:hover { 
+    background: orange !important; 
+    color: white !important; 
+    border-color: orange !important; 
+}
+
+
+
+body.light-mode .watchlist-icon-btn.added { 
+    background: #4CAF50 !important; 
+    color: white !important; 
+    border-color: #4CAF50 !important; 
+}

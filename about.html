@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - MMDB</title>
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <script>
+        if (localStorage.getItem("mmdb_theme") === "light") {
+            document.body.classList.add("light-mode");
+        }
+    </script>
+    <header>
+        <nav class="bar1">
+            <a href="webs.html" class="logo"><h1 class="logo-txt">MMDB</h1></a>
+            <ul class="bar-menu">
+                <li class="bar-all"><a href="webs.html">Home</a></li>
+                <li class="bar-all dropdown">
+                    <a href="#" class="dropbtn">Categories <i class="fa-solid fa-caret-down" style="font-size: 0.8em; margin-left: 4px;"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Action</a>
+                        <a href="#">Comedy</a>
+                        <a href="#">Drama</a>
+                        <a href="#">Horror</a>
+                        <a href="#">Sci-Fi</a>
+                    </div>
+                </li>
+                <li class="bar-all"><a href="allmovies.html">All Movies</a></li>
+                <li class="bar-all"><a href="about.html">About</a></li>
+                <li class="bar-all"><a href="watchlist.html"><i class="fa-solid fa-bookmark" style="margin-right: 5px;"></i>Watchlist</a></li>
+            </ul>
+        </nav> 
+    </header>
+    <main class="about-wrapper">
+        <div class="about-overlay"></div>
+        <div class="about-content" id="aboutContent">
+            <h1 class="about-title">Welcome to MMDB</h1>
+            <p class="about-description">
+            <p class="about-description">
+                Your ultimate destination for exploring popular movies, searching for hidden gems, 
+                and curating your personal watchlist. Built with a focus on clean design, smooth animations, 
+                and a seamless user experience. 
+                <br><br>
+                MMDB offers real-time live search, deep dives into cast profiles, 
+                and tailored movie recommendations. Every feature—from the intuitive hover cards to the fully integrated, 
+                locally-saved watchlist—was crafted from scratch using pure Vanilla JavaScript to ensure lightning-fast 
+                performance and a truly cinematic browsing experience.
+            </p>
+            </p>
+            <div class="divider"></div>
+            <h2 class="creator-text">Made by <span>Parth Mungali</span></h2>
+        </div>
+    </main>
+    <script src="about.js"></script>
+</body>
+</html>

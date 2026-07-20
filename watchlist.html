@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Watchlist - MMDB</title>
+    <link rel="stylesheet" href="watchlist.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <script>
+        if (localStorage.getItem("mmdb_theme") === "light") {
+            document.body.classList.add("light-mode");
+        }
+    </script>
+    <header>
+        <nav class="bar1">
+            <a href="webs.html" class="logo"><h1 class="logo-txt">MMDB</h1></a>
+            <ul class="bar-menu">
+                <li class="bar-all"><a href="webs.html">Home</a></li>
+                <li class="bar-all dropdown">
+                    <a href="#" class="dropbtn">Categories <i class="fa-solid fa-caret-down" style="font-size: 0.8em; margin-left: 4px;"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Action</a>
+                        <a href="#">Comedy</a>
+                        <a href="#">Drama</a>
+                        <a href="#">Horror</a>
+                        <a href="#">Sci-Fi</a>
+                    </div>
+                </li>
+                <li class="bar-all"><a href="allmovies.html">All Movies</a></li>
+                <li class="bar-all"><a href="about.html">About</a></li>
+                <li class="bar-all"><a href="watchlist.html"><i class="fa-solid fa-bookmark" style="margin-right: 5px;"></i>Watchlist</a></li>
+            </ul>
+        </nav> 
+    </header>
+    <main>
+     <div class="watchlist-layout">
+<div class="watchlist-left">
+    <h2>Your Watchlist</h2>
+    <div id="movieContainer">
+        <h3 id="loadingText">
+            Loading your watchlist...
+        </h3>
+    </div>
+</div>
+    <aside class="watchlist-sidebar">
+
+        <h3>Watchlist Stats</h3>
+
+        <div class="watchlist-stats-container" id="watchlistStats">
+            <div class="stat-box">
+                <i class="fa-solid fa-film"></i>
+                <div class="stat-info">
+                    <h3 id="statTotal">0</h3>
+                    <p>Total Movies</p>
+                </div>
+            </div>
+
+            <div class="stat-box">
+                <i class="fa-solid fa-star"></i>
+                <div class="stat-info">
+                    <h3 id="statRating">0.0</h3>
+                    <p>Avg Rating</p>
+                </div>
+            </div>
+
+            <div class="stat-box">
+                <i class="fa-solid fa-masks-theater"></i>
+
+                <div class="stat-info">
+                    <h3 id="statGenre">-</h3>
+                    <p>Top Genre</p>
+                </div>
+            </div>
+
+        </div>
+
+    </aside>
+
+</div>
+    </main>
+
+    <script src="watchlist.js"></script>
+</body>
+</html>

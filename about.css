@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #0b0b0b;
+    color: white;
+    overflow-x: hidden;
+}
+.logo { 
+    text-decoration: none; 
+    color: orange; 
+}
+
+
+.logo-txt { 
+    margin-left: 15px; 
+}
+
+.bar1 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+    background-color: black;
+    position: relative;
+    z-index: 100;
+}
+
+
+
+.bar-menu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style-type: none;
+    margin-left: 25px;
+}
+
+.bar-menu a {
+    text-decoration: none;
+    color: orange;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+
+.bar-menu a:hover, 
+.bar-menu a.active {
+    color: white;
+}
+.bar-menu > li > a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -4px;
+    left: 50%;
+    background-color: orange;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.bar-menu > li > a:hover::after,
+.bar-menu > li > a.active::after {
+    width: 100%; 
+}
+.dropdown {
+    position: relative; 
+    display: inline-block;
+}
+
+.dropbtn {
+    transition: color 0.3s ease; 
+}
+
+
+.dropdown-content {
+    display: none;    
+    position: absolute;
+    left: 0;
+    top: 100%;  
+    min-width: 150px;
+    border-radius: 10px;
+    z-index: 1000; 
+    overflow: hidden;
+}
+
+
+.dropdown-content a {
+    padding: 12px 16px;
+    display: block; 
+    text-align: left;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: orange;
+}
+
+
+.dropdown-content {
+    background-color: #000000; 
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5); 
+}
+
+.dropdown-content a {
+    color: #ffffff; 
+}
+
+.dropdown-content a:hover {
+    background-color: #212121 ; 
+    color: orange; 
+}
+
+
+
+.about-wrapper {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 4rem); 
+    background-image: url('445161.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.about-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.95) 100%);
+    z-index: 1;
+}
+
+
+
+/* --- Typography --- */
+.about-content {
+    position: relative;
+    z-index: 2; 
+    max-width: 1100px;
+    padding: 0 40px;
+    opacity: 0; 
+    transform: translateY(20px); 
+}
+
+
+.about-title {
+    font-size: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-title::before {
+    content: "Welcome to ";
+    font-size: 3.5rem;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.about-title::after {
+    content: "MMDB";
+    font-size: 3.5rem;
+    color: orange;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.about-description {
+    font-size: 1.2rem;
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.divider {
+    width: 60px;
+    height: 4px;
+    background-color: orange;
+    margin: 0 auto 40px auto;
+    border-radius: 2px;
+}
+
+.creator-text {
+    font-size: 1.8rem;
+    color: white;
+    font-weight: normal;
+}
+
+.creator-text span {
+    color: orange;
+    font-weight: bold;
+    font-size: 2.2rem;
+    display: block;
+    margin-top: 10px;
+}
+
+
+/*LIGHT MODE*/
+body.light-mode { 
+    background-color: #f5f5f5 !important; 
+    color: #111 !important; 
+}
+
+/* Navbar */
+body.light-mode .bar1 { 
+    background-color: #ffffff !important; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important; 
+}
+
+body.light-mode .bar-menu a { 
+    color: #444 !important; 
+}
+
+body.light-mode .bar-menu a:hover, 
+body.light-mode .bar-menu a.active { 
+    color: orange !important; 
+}
+
+body.light-mode .dropdown-content { 
+    background-color: #ffffff !important; 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1) !important; 
+}
+
+body.light-mode .dropdown-content a { 
+    color: #111 !important; 
+}
+
+body.light-mode .dropdown-content a:hover { 
+    background-color: #f0f0f0 !important; 
+    color: orange !important; 
+}
+
+body.light-mode .theme-btn:hover { 
+    color: #111 !important; 
+}
+
+/*Text*/
+body.light-mode .about-wrapper { 
+    background-color: #f5f5f5 !important; 
+}
+
+body.light-mode .about-overlay { 
+    background: rgba(255, 255, 255, 0.85) !important; 
+}
+
+body.light-mode .about-title { 
+    color: orange !important; 
+}
+
+body.light-mode .about-description { 
+    color: #333 !important; 
+}
+
+body.light-mode .creator-text { 
+    color: #111 !important; 
+}
+
+body.light-mode .creator-text span { 
+    color: orange !important; 
+}
+
+body.light-mode .divider { 
+    background-color: #ccc !important; 
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMDB</title>
+    <link rel="stylesheet" href="sty.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <!--Light Mode-->
+    <script>
+        if (localStorage.getItem("mmdb_theme") === "light") {
+            document.body.classList.add("light-mode");
+        }
+    </script>
+    
+    <!--loading -->
+    <div id="loader-wrapper">
+        <div class="loader-content">
+            <h1 class="loader-title">MMDB</h1>
+            <p class="loader-tagline">Preparing your cinematic journey...</p>
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav class="bar1">
+            <a href="#" class="logo">
+                <h1 class="logo-txt">MMDB</h1>
+            </a>
+            <ul class="bar-menu">
+                <li class="bar-all">
+                    <a href="#" class="home active">Home</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">
+                        Categories <i class="fa-solid fa-caret-down" style="font-size: 0.8em; margin-left: 4px;"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="#">Action</a>
+                        <a href="#">Comedy</a>
+                        <a href="#">Horror</a>
+                        <a href="#">Sci-Fi</a>
+                    </div>
+                </li>
+                <li class="bar-all">
+                    <a href="allmovies.html" class="All-Movies">All Movies</a>
+                </li>
+                <li class="bar-all">
+                    <a href="about.html" class="About">About</a>
+                </li>
+                <li class="bar-all">
+                    <a href="watchlist.html" class="watchlist-link"><i class="fa-solid fa-bookmark"></i> Watchlist</a>
+                </li>
+                <!--theme-->
+                <li class="bar-all" style="display: flex; align-items: center;">
+                    <button id="theme-toggle" class="theme-btn">
+                        <i id="theme-icon" class="fa-solid fa-moon"></i>
+                    </button>
+                </li>
+                <!--Dice-->
+                <li class="bar-all" style="display: flex; align-items: center;">
+                    <button id="random-movie-btn" class="dice-btn" title="Surprise Me with a Random Movie!">
+                    <i id="dice-icon" class="fa-solid fa-dice-one"></i>
+                    </button>
+                </li>
+                <li class="search-cont">
+                    <input id="searchInput" class="search3" placeholder="Search Movies" autocomplete="off">
+                    <div class="searchicon" id="searchBtn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <div id="floatingResults" class="floating-results"></div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero-slider-container">
+            <button class="slider-btn prev-btn" id="prevBtn">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="slider-wrapper" id="sliderWrapper">
+            </div>
+            <button class="slider-btn next-btn" id="nextBtn">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+        
+        <section class="movie-section">
+            <div class="header-with-sort">
+                <h2>Popular Movies</h2>
+                <select id="mainSortDropdown" class="cylindrical-sort">
+                    <option value="default" selected>Select the way to sort...</option>
+                    <option value="rating">Rating (High → Low)</option>
+                    <option value="date">Release Date (Newest → Oldest)</option>
+                    <option value="title">Title (A → Z)</option>
+                </select>
+            </div>
+            <div id="movieContainer"></div>
+            <button id="loadMoreBtn">
+                <i class="fa-solid fa-angles-down"></i>Load More
+            </button>
+        </section>
+        
+        <section class="search-section" id="searchSection">
+            <div id="searchContainer"></div>
+        </section>
+    </main>
+    
+    <script src="uj.js"></script>
+</body>
+</html>

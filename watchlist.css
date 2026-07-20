@@ -1,0 +1,503 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #0b0b0b;
+    color: white;
+}
+
+.logo { 
+    text-decoration: none; 
+    color: orange; 
+}
+
+.logo-txt { 
+    margin-left: 15px; 
+}
+
+.bar1 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+    background-color: black;
+}
+
+.bar-menu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style-type: none;
+    margin-left: 25px;
+    flex-grow: 1;
+}
+
+.bar-menu a {
+    text-decoration: none;
+    color: orange;
+    white-space: nowrap;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.bar-menu a:hover, 
+.bar-menu a.active {
+    color: white;
+}
+
+/* Nav Bar Hover */
+.bar-menu > li > a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -4px;
+    left: 50%;
+    background-color: orange;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.bar-menu > li > a:hover::after,
+.bar-menu > li > a.active::after {
+    width: 100%; 
+}
+
+
+.theme-btn {
+    background: transparent;
+    border: none;
+    color: orange;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-btn:hover {
+    transform: scale(1.2);
+    color: white;
+}
+.dropdown {
+    position: relative; 
+    display: inline-block;
+}
+
+.dropbtn {
+    transition: color 0.3s ease; 
+}
+
+.dropdown-content {
+    display: none;    
+    position: absolute;
+    left: 0;
+    top: 100%;  
+    min-width: 150px;
+    border-radius: 10px;
+    z-index: 1000; 
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    display: block; 
+    text-align: left;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: orange;
+}
+
+
+.dropdown-content {
+    background-color: #000000; 
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5); 
+    border: 1px solid #212121;
+}
+.dropdown-content a {
+    color: #ffffff; 
+}
+
+.dropdown-content a:hover {
+    background-color: #212121; 
+    color: orange; 
+}
+
+
+/* --- Watchlist --- */
+.movie-section {
+    background: #111;
+    padding: 40px;
+    min-height: 100vh;
+}
+
+.movie-section h2 {
+    color: white;
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+.empty-msg {
+    text-align: center; 
+    width: 100%; 
+    margin-top: 50px;
+    color: white;
+}
+
+#movieContainer{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+
+    gap:30px;
+
+}
+
+
+.movie-card {
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 2 / 3;
+    max-width: 280px; 
+    z-index: 1; 
+}
+.movie-card:hover {
+    transform: scale(1.05); 
+    z-index: 10; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.9); 
+}
+
+.movie-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+
+.movie-card:hover .card-overlay {
+    opacity: 1; 
+}
+
+.card-overlay h3 {
+    font-size: 1.3rem;
+    color: orange;
+    margin-bottom: 10px;
+}
+
+.card-overlay .genres {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.card-overlay .bottom-info p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: white;
+}
+
+/* ---Tick Button --- */
+.watchlist-icon-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0,0,0,0.6);
+    border: 2px solid white;
+    color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s ease;
+}
+
+.watchlist-icon-btn:hover {
+    background: white;
+    color: black;
+    transform: scale(1.1);
+}
+
+.watchlist-icon-btn.added {
+    background: #4CAF50;
+    border-color: #4CAF50;
+    color: white;
+}
+
+
+
+/* WATCHLIST STAT*/
+.watchlist-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: space-between; 
+}
+
+.watchlist-left h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-top: 22px;
+    margin-bottom: 25px;
+}
+
+
+.watchlist-left {
+    flex: 1;
+    order: 1;
+    min-width: 0; 
+}
+
+
+.watchlist-sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    order: 2;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 14px;
+    padding: 22px;
+    margin-right: 30px;
+    position: sticky;
+    top: 90px;
+    height: fit-content;
+    margin-top: 40px;
+}
+
+
+
+.watchlist-stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.stat-box{
+    background:#1b1b1b;
+    border-radius:12px;
+    padding:18px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    border:1px solid #2f2f2f;
+    transition:.3s;
+}
+
+.stat-box:hover{
+    border-color:orange;
+    transform:translateY(-3px);
+
+}
+
+.stat-box i{
+    font-size:2rem;
+    color:orange;
+    width:45px;
+    text-align:center;
+
+}
+.stat-info h3{
+    color:white;
+    font-size:1.7rem;
+    margin-bottom:4px;
+
+}
+
+
+
+.stat-info p{
+
+    color:#aaa;
+
+}
+
+
+.watchlist-sidebar h3 {
+    color: orange;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+}
+
+
+
+@media(max-width:1000px)
+    {.watchlist-layout {
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 0 30px;
+    }
+
+    .watchlist-sidebar{
+        width:100%;
+        position:static;
+    }
+}
+.empty-msg {
+    text-align: center; 
+    width: 100%; 
+    margin-top: 50px;
+    color: white;
+    white-space: nowrap;
+    font-size: 2rem;
+}
+
+
+
+
+/* ---LIGHT MODE ------- */
+body.light-mode { background-color: #f5f5f5 !important; color: #111 !important; }
+body.light-mode h2, body.light-mode #loadingText, body.light-mode .empty-msg { color: #111 !important; }
+
+/* Navbar */
+body.light-mode .bar1 { 
+    background-color: #ffffff !important; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important; 
+}
+
+body.light-mode .bar-menu a { 
+    color: #444 !important; 
+}
+
+body.light-mode .bar-menu a:hover, 
+body.light-mode .bar-menu a.active { 
+    color: orange !important; 
+}
+
+body.light-mode .dropdown-content { 
+    background-color: #ffffff !important; 
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1) !important; 
+    border: 1px solid #e0e0e0 !important;
+}
+
+body.light-mode .dropdown-content a { 
+    color: #111 !important; 
+}
+
+body.light-mode .dropdown-content a:hover { 
+    background-color: #f0f0f0 !important; 
+    color: orange !important; 
+}
+
+/* card/list */
+body.light-mode .movie-card { 
+    background-color: #ffffff !important; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important; 
+}
+
+body.light-mode .card-overlay { 
+    background: rgba(255, 255, 255, 0.75) !important; 
+    backdrop-filter: blur(3px) !important; 
+    -webkit-backdrop-filter: blur(3px) !important;
+}
+
+body.light-mode .card-overlay h3 { 
+    color: orange !important; 
+}
+
+body.light-mode .card-overlay p, 
+body.light-mode .card-overlay .genres { 
+    color: #333 !important; 
+}
+
+body.light-mode .watchlist-icon-btn { 
+    background: rgba(255, 255, 255, 0.9) !important; 
+    color: #111 !important; 
+    border: 2px solid #333 !important; 
+}
+
+body.light-mode .watchlist-icon-btn:hover { 
+    background: orange !important; 
+    color: white !important; 
+    border-color: orange !important; 
+}
+
+body.light-mode .watchlist-icon-btn.added { 
+    background: #4CAF50 !important; 
+    color: white !important; 
+    border-color: #4CAF50 !important; 
+}
+
+body.light-mode .movie-section { 
+    background-color: transparent !important; 
+}
+
+
+body.light-mode .watchlist-left h2 {
+    color: #111 !important;
+}
+
+body.light-mode .watchlist-sidebar{
+    margin-top: 40px;
+    background:white;
+    border:1px solid #ddd;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+
+body.light-mode .stat-box{
+
+    background:#fafafa;
+
+    border:1px solid #e3e3e3;
+
+}
+
+body.light-mode .stat-box:hover{
+    border-color:orange;
+}
+
+body.light-mode .stat-info h3{
+
+    color:#111;
+}
+
+body.light-mode .stat-info p{
+    color:#555;
+
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details - MMDB</title>
+    <link rel="stylesheet" href="details.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <script>
+        if (localStorage.getItem("mmdb_theme") === "light") {
+            document.body.classList.add("light-mode");
+        }
+    </script>
+    <header>
+        <nav class="bar1">
+            <a href="webs.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </nav> 
+    </header>
+
+    <main class="details-wrapper">
+        <div class="details-content" id="detailsContent">
+            <h2 style="color: white; text-align: center;">Loading Movie Details...</h2>
+        </div>
+
+        <!--Cast Section -->
+        <div class="cast-section" id="castSection" style="display: none;">
+            <h2>Cast</h2>
+            <div class="cast-container" id="castContainer">
+            </div>
+        </div>
+        <!--Suggested -->
+        <div class="recommendations-section" id="recommendationsSection" style="display: none;">
+            <h2>You Might Also Like</h2>
+            <div class="recommendations-grid" id="recommendationsGrid"></div>
+        </div>
+    </main>
+
+    <script src="details.js"></script>
+</body>
+</html>
